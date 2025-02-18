@@ -1,0 +1,63 @@
+@use 'variables' as *;
+
+// Header Styles
+.site-header {
+    background-color: $bg-black-color;
+    padding: $padding-10;
+
+    .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        a {
+            text-decoration: none;
+            color: $header-text-color;
+
+            span {
+                &:first-child {
+                    font-size: $header-logo-font-size;
+                    font-weight: $header-logo-font-weight;
+                }
+                &:last-child {
+                    font-size: $header-logo-small-font-size;
+                }
+            }
+        }
+    }
+
+    .site-navigation {
+        ul {
+            list-style-type: none;
+            display: flex;
+            gap: $nav-gap;
+            margin: 0;
+            padding: 0;
+
+            li {
+                a {
+                    text-decoration: none;
+                    color: $header-text-color;
+                }
+            }
+        }
+    }
+
+    .header-icons {
+        display: flex;
+        align-items: center;
+        gap: $nav-gap;
+
+        a {
+            text-decoration: none;
+            color: $header-icon-color;
+        }
+    }
+}
+@media (min-width: $breakpoint-mobile) {
+    .site-header {
+      padding: $padding-20;
+    }
+  }
