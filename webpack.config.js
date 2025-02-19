@@ -2,10 +2,10 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: ['./src/app.js', 'assets/scss/main.scss'], // Entradas para JS y SCSS
+  entry: ['./assets/js/app.js', './assets/scss/main.scss'], // Entradas para JS y SCSS
   output: {
     path: path.resolve(__dirname, 'public'), // Carpeta de salida
-    filename: 'main.js', // Nombre del archivo JS de salida
+    filename: 'js/main.js', // Nombre del archivo JS de salida
   },
   module: {
     rules: [
@@ -14,14 +14,19 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader, // Extrae el CSS en un archivo separado
           'css-loader', // Interpreta `@import` y `url()`
-          'sass-loader', // Compila SCSS a CSS
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'), // Usa la implementación de Dart Sass
+            },
+          },
         ],
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'assets/scss/styles.css', // Ruta y nombre del archivo CSS de salida
+      filename: 'css/styles.css', // Ruta y nombre del archivo CSS de salida
     }),
   ],
   mode: 'development', // Modo de desarrollo

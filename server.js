@@ -20,6 +20,9 @@ app.set('view engine', 'liquid');
 
 app.use(express.static('public'));
 
+// Configuración de la carpeta 'assets' para los archivos estáticos
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
 const products = require('./data/products.json');
 const collections = require('./data/collections.json');
 const settings = JSON.parse(fs.readFileSync('./config/settings_data.json', 'utf-8'));
