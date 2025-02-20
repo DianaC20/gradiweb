@@ -1,40 +1,37 @@
+
 <header class="header">
-    <div class="header-inner">
-        <div class="logo">
-            <a href="{{ shop.url }}">
-                <img src="/assets/shuffle_logo.svg" alt="Logo Shuffle" width="300" height="32">
-            </a>
+    <div class="marquee">
+        <div class="marquee__wrapper">
+            {% assign 
+            text = "Free shipping for orders over $100" 
+            icon = "assets/rombo-icon.svg" 
+            %}
+            <div>
+                <img src="" alt="" />
+                {{ text }}
+            </div>
         </div>
-        <nav class="navigation">
-            <ul>
-                <li>We Accept</li>
-                <li>
-                    <span>
-                        <a href="#" ><i>◙</i></a>
-                    </span>
-                </li>
-                
-                <li>
-                    <span>
-                        <a href="#" ><i>◙</i></a>
-                    </span>
-                </li>
-                <li>
-                    <span>
-                        <a href="#" ><i>◙</i></a>
-                    </span>
-                </li>
-                <li>
-                    <span>
-                        <a href="#" ><i>◙</i></a>
-                    </span>
-                </li>
-            </ul>
-        </nav>
-        <div class="header-icons">
-            <a href="#">All products</a>
-            <a href="#">Collections</a>
-            <a href="#" ><i>◙</i></a>
+    </div>
+    <div class="container"> 
+        <div class="header__inner">
+            <div class="header__logo">
+                <a href="{{ shop.url }}">
+                    <img src="/assets/shuffle_logo.svg" alt="Logo Shuffle" width="300" height="32">
+                </a>
+            </div>
+            <nav class="header__navigation">
+                <ul>
+                    <li>We Accept</li>
+                    <li>
+                        <div class="wrap-icons"> <img src="/assets/bitcoin-icon.svg" alt="" width="25" height=""/> <img src="/assets/ethereum-icon.svg" alt=""/> <img src="/assets/litecoin-icon.svg" alt=""/> <img src="/assets/dogecoin-icon.svg" alt=""/> <img src="/assets/usdcoin-icon.svg" alt=""/></div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#">All products</a>
+                <a href="#">Collections</a>
+                <a href="#" ><i>◙</i></a>
+            </div>
         </div>
     </div>
 </header>

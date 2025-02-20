@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: 'PODIUM Sharp 3.11';
+    src: url('../fonts/PODIUMSharp-311.woff2') format('woff2'),
+        url('../fonts/PODIUMSharp-311.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kallisto-bold';
+    src: url('../fonts/Kallisto-Bold.woff2') format('woff2'),
+        url('../fonts/Kallisto-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kallisto-medium';
+    src: url('../fonts/Kallisto-Medium.woff2') format('woff2'),
+        url('../fonts/Kallisto-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kallisto-light';
+    src: url('../fonts/Kallisto-Light.woff2') format('woff2'),
+        url('../fonts/Kallisto-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kallisto-thin';
+    src: url('../fonts/Kallisto-Thin.woff2') format('woff2'),
+        url('../fonts/Kallisto-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+

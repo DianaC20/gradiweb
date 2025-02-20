@@ -1,0 +1,157 @@
+@use 'variables' as *;
+
+// Footer Styles
+.footer {
+    padding: $padding-1;
+    text-align: $text-center;
+    color: $text-color;
+    
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: $padding-1;
+        @include flex-center;
+        justify-content: space-between;
+    }
+    &__logo{
+        @include flex-center;
+        img {
+            margin-right: 0.675rem;
+        }
+        span{
+            border-left: 1px solid $primary-color;
+            line-height: 0;
+            display: inline-block;
+        }
+    }
+    &__left {
+        text-align: $text-start;
+    }
+    
+    &__title {
+        font-size: 24px;
+        font-weight: $font-weight-b;
+    }
+    &__menu {
+        padding: $padding-1;
+    }
+    
+    &__nav, &__policies, &__social {
+        margin-top: 20px;
+    }
+    
+    &__nav-list, &__policies-list, &__social-list {
+        list-style: none;
+        padding: 0;
+        @include flex-center;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    
+    &__nav-item, &__policies-item, &__social-item {
+        margin: 0 10px;
+    }
+    
+    &__nav-link{
+        font-size: $font-size-base;
+        text-decoration: none;
+        color: $text-color;
+        position: relative;
+    &:hover {
+        border: 0;
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, $primary-color, $text-color, $primary-color);
+        }
+    }
+    }
+    
+    &__policies-link, &__social-link {
+        text-decoration: none;
+        color: $text-color;
+        font-size: $font-size-small;
+    
+    &:hover {
+        text-decoration: underline;
+    }
+    }
+    
+    &__payments {
+        margin-top: 20px;
+        text-align: $text-center;
+        display: flex;
+    }
+    
+    &__payments-text {
+        margin-bottom: 10px;
+        font-size: $font-size-small;
+    }
+    
+    &__payments-icons {
+        max-width: 100px;
+    }
+    
+    &__subscription {
+        margin-top: 20px;
+    }
+    
+    &__subscription-title {
+        font-size: $font-size-small;
+        font-weight: $font-weight-b;
+        text-align: $text-start;
+    }
+    
+    &__subscription-form {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    &__subscription-input {
+        padding: $padding-base;
+        background-color: lighten($secundary-color, 12%);
+        border: 0;
+        border-radius: 4px 4px 4px 0;
+        color: $primary-color;
+        &:focus-visible {
+            border: 0;
+            outline: 0;
+        }
+
+    }
+    
+    &__subscription-button {
+        padding: 10px 20px;
+        border: none;
+        background-color: lighten($secundary-color, 12%);
+        color: white;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+    }
+    
+    &__contact {
+        margin-top: 20px;
+    }
+    
+    &__contact-text {
+        margin: 0;
+        font-size: $font-size-small;
+    }
+    
+    &__contact-link {
+        text-decoration: none;
+        color: #007bff;
+        font-size: $font-size-small;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .header__navigation{
+        border: 0;
+    }
+}

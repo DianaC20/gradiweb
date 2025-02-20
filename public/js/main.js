@@ -15,18 +15,18 @@
   \**************************/
 /***/ (() => {
 
-eval("document.addEventListener('scroll', function() {\r\n    const header = document.querySelector('.header');\r\n    if (window.scrollY > 250) { \r\n      header.classList.add('transparent');\r\n    } else {\r\n      header.classList.remove('transparent');\r\n    }\r\n  });\n\n//# sourceURL=webpack://shopify-simulator/./assets/js/app.js?");
+eval("document.addEventListener('scroll', function() {\r\n    const header = document.querySelector('.header');\r\n    if (window.scrollY > 250) { \r\n      header.classList.add('header--transparent');\r\n    } else {\r\n      header.classList.remove('header--transparent');\r\n    }\r\n  });\r\n\r\n  document.addEventListener(\"DOMContentLoaded\", function () {\r\n    const marqueeWrapper = document.querySelector(\".marquee .marquee__wrapper\");\r\n    const textElement = marqueeWrapper.querySelector(\"div\");\r\n    const textWidth = textElement.offsetWidth;\r\n    const screenWidth = window.innerWidth; \r\n\r\n    const repetitions = Math.ceil(screenWidth / textWidth) + 1;\r\n\r\n    for (let i = 0; i < repetitions; i++) {\r\n        const clone = textElement.cloneNode(true);\r\n        marqueeWrapper.appendChild(clone);\r\n    }\r\n    marqueeWrapper.style.width = `${repetitions * textWidth}px`;\r\n});\n\n//# sourceURL=webpack://shopify-simulator/./assets/js/app.js?");
 
 /***/ }),
 
-/***/ "./assets/scss/main.scss":
-/*!*******************************!*\
-  !*** ./assets/scss/main.scss ***!
-  \*******************************/
+/***/ "./assets/scss/app.scss":
+/*!******************************!*\
+  !*** ./assets/scss/app.scss ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://shopify-simulator/./assets/scss/main.scss?");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://shopify-simulator/./assets/scss/app.scss?");
 
 /***/ })
 
@@ -54,7 +54,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	__webpack_modules__["./assets/js/app.js"](0, {}, __webpack_require__);
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./assets/scss/main.scss"](0, __webpack_exports__, __webpack_require__);
+/******/ 	__webpack_modules__["./assets/scss/app.scss"](0, __webpack_exports__, __webpack_require__);
 /******/ 	
 /******/ })()
 ;

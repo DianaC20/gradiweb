@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "build": "webpack",
-    "sass": "sass assets/scss/main.scss public/css/styles.css",
-    "watch:sass": "sass assets/scss/main.scss public/css/styles.css --watch"
+    "sass": "sass assets/scss/app.scss public/css/styles.css",
+    "watch:sass": "sass assets/scss/app.scss public/css/styles.css --watch"
   },
   "keywords": [
     "shopify",

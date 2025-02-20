@@ -1,18 +1,76 @@
-// Variables
-$bg-black-color: #000000;
-$bg-white-color: #ffffff;
-$bg-purple-color: rgb(82, 23, 131);
-$text-color: #ffffff;
-$font-size-base: 1.25rem;
-$font-size-small: 0.75rem;
-$logo-font-size: 24px;
-$logo-font-weight: bold;
-$logo-small-font-size: 14px;
-$nav-gap: 15px;
-$icon-color: #ffffff;
-$icon-size: 24px;
-$padding-10: 10px;
-$padding-20: 20px;
-$breakpoint-mobile: 768px;
+$w-100: 100%;
+$primary-color: #772bf2;
+$secundary-color: #000;
+$text-color: #fff;
+$padding-base: 0.625rem;
+$padding: 0.938rem;
+$padding-1: 1.25rem;
+$nav-gap: 1rem;
+$font-size-base: 1rem;
+$font-size-1: 0.875rem;
+$font-size-small: 0.625rem;
+$font-weight-b: bold;
+$text-end: end;
+$text-start: start;
+$text-center: center;
 
 
+
+// Mixins
+@mixin padding($prefix, $properties...) {
+    @for $i from 1 through 5 {
+        .#{$prefix}-#{$i} {
+            @each $property in $properties {
+                #{$property}: #{0.5 * $i}rem; 
+            }
+        }
+    }
+}
+
+@include padding('p', 'padding');
+
+@include padding('pt', 'padding-top');
+@include padding('pr', 'padding-right');
+@include padding('pb', 'padding-bottom');
+@include padding('pl', 'padding-left');
+
+@include padding('px', 'padding-left', 'padding-right');
+@include padding('py', 'padding-top', 'padding-bottom');
+
+@mixin generate-margin($prefix, $properties...) {
+    @for $i from 1 through 5 {
+        .#{$prefix}-#{$i} {
+            @each $property in $properties {
+                #{$property}: #{0.5 * $i}rem; 
+            }
+        }
+    }
+}
+
+@include generate-margin('m', 'margin');
+
+@include generate-margin('mt', 'margin-top');
+@include generate-margin('mr', 'margin-right');
+@include generate-margin('mb', 'margin-bottom');
+@include generate-margin('ml', 'margin-left');
+
+@include generate-margin('mx', 'margin-left', 'margin-right');
+@include generate-margin('my', 'margin-top', 'margin-bottom');
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin gradient-border($start, $end) {
+    background: linear-gradient(to right, $start, $end);
+}
+
+@mixin animation($name, $duration, $timing: linear, $iteration: infinite) {
+    animation: $name $duration $timing $iteration;
+}
