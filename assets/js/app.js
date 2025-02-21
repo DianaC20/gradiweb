@@ -14,35 +14,31 @@ document.addEventListener('scroll', function() {
   });
 
   document.addEventListener("DOMContentLoaded", function () {
+    // Función para inicializar el marquee
     function initializeMarquee(parentSelector) {
       const marqueeWrapper = document.querySelector(`${parentSelector} .marquee__wrapper`);
+      if (!marqueeWrapper) return; 
   
       const textElement = marqueeWrapper.querySelector("div");
   
-      // Limpiar los clones anteriores antes de recalcular
       while (marqueeWrapper.children.length > 1) {
         marqueeWrapper.removeChild(marqueeWrapper.lastChild);
       }
   
       const textWidth = textElement.offsetWidth;
-      const screenWidth = window.innerWidth;
+      const screenWidth = window.innerWidth; 
   
-      // Asegurarse de que siempre haya suficientes repeticiones
-      const repetitions = Math.ceil(screenWidth / textWidth) + 1; // Agregamos +2 para evitar espacios vacíos
+      const repetitions = Math.ceil(screenWidth / textWidth) + 4;
   
       for (let i = 0; i < repetitions; i++) {
         const clone = textElement.cloneNode(true);
         marqueeWrapper.appendChild(clone);
       }
-  
-      marqueeWrapper.style.width = `${repetitions * textWidth}px`;
     }
   
-    // Inicializar los marquees al cargar la página
-    initializeMarquee(".marquee"); // Primer marquee
-    initializeMarquee(".marquee2"); // Segundo marquee
+    initializeMarquee(".marquee");
+    initializeMarquee(".marquee2");
   
-    // Usar debounce para optimizar el evento resize
     function debounce(func, delay) {
       let timer;
       return function (...args) {
@@ -51,12 +47,11 @@ document.addEventListener('scroll', function() {
       };
     }
   
-    // Escuchar el evento resize y ejecutar initializeMarquee para ambos marquees
     window.addEventListener(
       "resize",
       debounce(function () {
-        initializeMarquee(".marquee"); // Actualizar el primer marquee
-        initializeMarquee(".marquee2"); // Actualizar el segundo marquee
+        initializeMarquee(".marquee");
+        initializeMarquee(".marquee2"); 
       }, 300)
     );
   

@@ -2,17 +2,20 @@
 
 // Footer Styles
 .footer {
-    padding: $padding-1;
     text-align: $text-center;
     color: $text-color;
+    padding: $padding;
     
     &__container {
-        max-width: 1200px;
+        max-width: 1400px;
         margin: 0 auto;
-        padding: $padding-1;
-        @include flex-center;
-        flex-direction: column;
-        justify-content: space-between;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr;
+        align-items: center;
+        &> :nth-child(3) {
+           text-align: $text-end;
+        }
     }
     &__logo{
         @include flex-center;
@@ -27,14 +30,12 @@
     }
     &__left {
         text-align: $text-start;
+        order: 3;
     }
     
     &__title {
         font-size: 24px;
         font-weight: $font-weight-b;
-    }
-    &__menu {
-        padding: $padding-1;
     }
     
     &__nav, &__policies, &__social {
@@ -44,14 +45,15 @@
     &__nav-list, &__policies-list, &__social-list {
         list-style: none;
         padding: 0;
-        @include flex-center;
+        display: flex;
+        align-items: start;
         flex-wrap: wrap;
         justify-content: space-evenly;
         flex-direction: column;
     }
     
     &__nav-item, &__policies-item, &__social-item {
-        margin: 0 10px;
+        margin: 5px 0px;
     }
     
     &__nav-link{
@@ -86,7 +88,7 @@
     &__payments {
         margin-top: 20px;
         text-align: $text-center;
-        display: flex;
+        display: inline-block;
     }
     
     &__payments-text {
@@ -106,11 +108,12 @@
         font-size: $font-size-small;
         font-weight: $font-weight-b;
         text-align: $text-start;
+
+
     }
     
     &__subscription-form {
         display: flex;
-        justify-content: center;
         margin-top: 10px;
     }
     
@@ -120,6 +123,8 @@
         border: 0;
         border-radius: 4px 4px 4px 0;
         color: $primary-color;
+        width: 80%;
+        max-width: 120px;
         &:focus-visible {
             border: 0;
             outline: 0;
@@ -159,12 +164,41 @@
 }
 @include respond-to(lg) {
 
-    .footer {        
+    .footer {   
         &__container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+        &__left{
+            order: 0;
+        }
+        &__nav-list, &__policies-list, &__social-list{
             flex-direction: row;
         }
-        &__nav-list, &__policies-list, &__social-list {
-            flex-direction: row;
+        &__payments {
+            display: flex;
         }
     }
+}
+@media (min-width: 668px) and (max-width: 991px) {
+    .footer{
+        &__container {
+            
+            &> :nth-child(3) {
+                grid-column: span 2;
+                justify-items: normal;
+            }
+        }
+        &__left{
+            order: 0;
+        }
+        &__nav-list, &__policies-list, &__social-list{
+            flex-direction: row;
+            align-items: center;
+        }
+        &__payments {
+            display: flex;
+        }
+    } 
 }
