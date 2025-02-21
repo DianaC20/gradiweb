@@ -1,11 +1,11 @@
 <section class="featured-products">
-  <div class="container">
-      <h2>{{ settings['featured-products'].settings.heading }}</h2>
-  <div class="product-list">
-    {% for product in products %}
-      {% render 'product-card', product: product %}
-    {% endfor %}
-  </div>
+  <div class="container conatiner-cards py-5">
+      <div class="product-list inner-grid">
+        {% for product in products %}
+          {% render 'product-card', product: product %}
+        {% endfor %}
+      </div>
+      <button class="view-all-btn mx-auto" id="viewAllBtn">View All</button>
   </div>
 
 </section>

@@ -1,35 +1,55 @@
 
 <header class="header">
-    <div class="marquee">
+    <div class="marquee py-1">
         <div class="marquee__wrapper">
             {% assign text = "Free shipping for orders over $100" %}
             {% assign icon = "assets/rombo-icon.svg" %}
             <div>
-                <img src="{{ icon | asset_url }}" alt="" width="10" height="10" />
+                <img src="{{ icon | asset_url }}" alt="" width="20" height="" />
                 {{ text }}
             </div>
         </div>
     </div>
     <div class="container"> 
-        <div class="header__inner">
-            <div class="header__logo">
-                <a href="{{ shop.url }}">
-                    <img src="/assets/shuffle_logo.svg" alt="Logo Shuffle" width="300" height="32">
-                </a>
+        <div class="main-header">
+            <div>
+                <button class="header__toggle" aria-label="Abrir menú">
+                    ☰
+                </button>
             </div>
-            <nav class="header__navigation">
-                <ul>
-                    <li>We Accept</li>
-                    <li>
-                        <div class="wrap-icons"> <img src="/assets/bitcoin-icon.svg" alt="" width="25" height=""/> <img src="/assets/ethereum-icon.svg" alt="" width="25" height="" /> <img src="/assets/litecoin-icon.svg" alt=""  width="25" height=""/> <img src="/assets/dogecoin-icon.svg" alt=""  width="25" height=""/> <img src="/assets/usdcoin-icon.svg" alt=""  width="25" height=""/></div>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header-icons">
-                <a href="#">All products</a>
-                <a href="#">Collections</a>
-                <a href="#" ><i>◙</i></a>
+            <div class="header__inner">
+                <div class="header__logo d-block d-lg-none">
+
+                    <a href="{{ shop.url }}">
+                        <img src="assets/shuffle-icon_1.svg" width="50" height="" />
+                        <span class="">STORE</span>
+                    </a>
+                </div>
+                <div class="header__logo d-none d-lg-block">
+                    <a href="{{ shop.url }}">
+                        <img src="/assets/shuffle_logo.svg" alt="Logo Shuffle" width="300" height="32">
+                    </a>
+                </div>
+                <nav class="header__navigation d-none d-lg-block">
+                    <ul>
+                        <li>We Accept</li>
+                        <li>
+                            <div class="wrap-icons"> <img src="/assets/bitcoin-icon.svg" alt="" width="25" height=""/> <img src="/assets/ethereum-icon.svg" alt="" width="25" height="" /> <img src="/assets/litecoin-icon.svg" alt=""  width="25" height=""/> <img src="/assets/dogecoin-icon.svg" alt=""  width="25" height=""/> <img src="/assets/usdcoin-icon.svg" alt=""  width="25" height=""/></div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="header__list">
+                    <a href="#">All products</a>
+                    <a href="#">Collections</a>
+                </div>
+                <div class="header__icon-car p-1">
+                    <a href="#" >
+                        <img src="assets/car-icon.svg" alt="" width="30" height="30">
+                    </a>
+                </div>
             </div>
         </div>
+
     </div>
 </header>

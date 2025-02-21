@@ -1,6 +1,15 @@
-<div class="marquee">
-    <div class="marquee__wrapper">
-        {% assign text = "Free shipping for orders over $100" %}
-        <div>{{ text }}</div>
+<div class="slide">
+    <div class="marquee marquee2">
+        <div class="marquee__wrapper">
+            {% assign text = "shuffle essentials" %}
+            {% assign icon = "assets/rombo-icon.svg" %}
+            <div class="marquee__element">
+                <span class="rombo-icon"> 
+                    <img src="{{ icon | asset_url }}" alt="" width="60" height="" />
+                </span>
+                <div class="marquee__element--title">{{ text }}</div>
+            </div>
+        </div>
     </div>
 </div>
+

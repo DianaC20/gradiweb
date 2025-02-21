@@ -1,11 +1,17 @@
-<div class="product-card">
-  <h3>{{ product.title }}</h3>
-  <p>Price: ${{ product.price }}</p>
-  {% if product.tags %}
-    <ul>
-      {% for tag in product.tags %}
-        <li>{{ tag }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+<div class="inner-grid__card">
+  <div class="wrap-img"> 
+    <img src="assets/{{ product.image }}" alt="" width="" height="">
+  </div>
+  <div class="inner-grid__card__info pt-2">
+    <div>
+      {% if product.tags %}
+        <span>
+          {% for tag in product.tags %}
+            {{ tag  | capitalize }}{% if forloop.index < forloop.length %} - {% endif %}
+          {% endfor %}
+        </span>
+      {% endif %}
+      <div class="mt-1">${{ product.price }} USD</div> </div>
+    <div> <i class="inner-grid__card__info--icon"> </i> </div>
+  </div>
 </div>

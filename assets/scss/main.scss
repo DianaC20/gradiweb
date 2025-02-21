@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    color: $text-color;
 }
 
 .app {
@@ -27,18 +28,23 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 $padding-1;
+    overflow: hidden;
 }
 
 // Header
+.main-header{
+    @include flex-center
+}
 .header {
     background-color: #111;
     position: sticky;
     top: 0;
     z-index: 1000;
     transition: background-color 0.3s;
+    overflow: hidden;
 
     &--transparent {
         background-color: rgb(120 120 120 / 30%);
@@ -48,11 +54,27 @@ body {
     &__inner {
         @include flex-center;
         justify-content: space-between;
+        width: 100%;
     }
     &__logo{
+        display: inline-block;
         padding: $padding-1;
+        vertical-align: middle;
+        a{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: $text-color;
+        }
+        span{
+            font-family: 'PODIUM Sharp 3.11';
+            font-size: 2rem;
+            display: inline-block;
+            padding-left: $padding;
+            border-left: 1px solid $primary-color;
+            margin-left: 10px;
+        }
     }
-    &__logo a,
     &__navigation a {
         text-decoration: none;
         color: $text-color;
@@ -63,6 +85,7 @@ body {
         border-radius: 2rem;
         padding: 0.5rem 1rem;
         color: $text-color;
+        margin: auto;
 
         ul {
             @include flex-center;
@@ -72,7 +95,61 @@ body {
             padding: 0;
         }
     }
+    &__icon-car{
+        background-color: $primary-color;
+        border-radius: 8px;
+        text-align: center;
+        line-height: 0;
+        margin-left: auto;
+        }
+    &__toggle {
+        background: none;
+        border: none;
+        color: $text-color;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: block;
+      }
+      &__list{
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
+        background-color: rgba($color: #000000, $alpha: 1.0);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: auto;
+        padding: 1rem;
+        a{
+            color: $text-color;
+            text-decoration: none;
+        }
+                
+        &.active {
+            display: flex;
+        }
+      }
+    @include respond-to(lg) {
+    .main-header{
+        display: block;
+    }
+    &__toggle {
+        display: none;
+    }
 
+    &__list {
+        display: block;
+        flex-direction: column;
+        gap: 0.5rem;
+        background-color: transparent;
+        position: relative;
+        width: auto;
+        padding: 1rem;
+        margin-left: auto;
+
+    }
+
+    }
 }
 .wrap-icons{
     display: flex;
@@ -91,21 +168,39 @@ body {
     overflow: hidden;
     white-space: nowrap;
     width: $w-100;
-    height: 1em;
-    padding: $padding;
     background-color: $primary-color;
 
     &__wrapper {
         @include animation(marquee, 10s);
+        @include flex-center;
         div{
-            display: inline-block;
+            @include flex-center;
             padding-right: $padding-1;
             text-transform: uppercase;
             color: $text-color;
             font-weight: $font-weight-b;
+        img{
+            margin-right: 18px;
+        }
         }
     }
+    &__element{
+        white-space: nowrap;
+        width: var(--item-width);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $text-color;
+    &--title{
+        font-size:3rem
+    } 
 }
+}
+.slide .marquee{
+    background-color: transparent;
+    margin: 0.8rem 0;
+}
+
 .banner{
     position: relative;
     &__button{
@@ -129,5 +224,161 @@ body {
 
 @keyframes marquee {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-100%); }
+}
+
+.conatiner-cards  {
+    .inner-grid {
+        --min-col-size: 300px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(var(--min-col-size), 100%), 1fr));
+            gap:1.5rem;
+        &__card {
+            font-weight: 600;
+            margin-bottom: 30px;
+                .wrap-img{
+                    aspect-ratio: 9 / 11.5;
+                    overflow: hidden;
+                    position: relative;
+                    outline: 4px solid #5d50aa;
+                    border-radius: 6px;
+                img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                object-position: center center;
+                transition: all 0.2s ease
+                }
+            }
+        
+            &__info{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            
+                &--icon{
+                    width: 50px;
+                    height: 50px;
+                    background-color: #762bfb;
+                    background-image: url(/assets/car-icon.svg);
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: 66%;
+                    display: inline-flex;
+                    cursor:pointer;
+                    border-radius: 50%;
+                }
+        }
+        
+            &:hover{
+                .wrap-img{
+                    outline-color: #762bfb;
+                img{
+                transform: scale(1.1);
+                }
+                }
+            }
+        }
+    }
+
+.view-all-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 13px 20px;
+    background-color: #762bfb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: clamp(1.25rem, calc(-0.9375rem + 5vw), 1.8rem);
+    font-family: 'PODIUM Sharp 3.11';
+    text-transform: uppercase;
+    transition: background-color 0.2s ease;
+     &:hover {
+        background-color: #5d50aa;
+      }
+  }
+}
+.container-collections{
+    position: relative;
+    .inner-grid {
+    --min-col-size: 400px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(var(--min-col-size), 100%), 1fr));
+        gap:1.5rem;
+    
+        &__card {
+        margin-bottom: 30px;
+        position: relative;
+    
+        .wrap-img{
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border-radius: 6px;
+            img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                object-position: center center;
+                transition: all 0.2s ease;
+                transform: scale(1.5);
+                }
+        }
+        &--info{
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: clamp(1.25rem, calc(-0.9375rem + 5vw), 2rem);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+        
+        }
+        &:hover{
+            img{
+                transform: scale(1.7);
+            }
+        
+            }
+    
+        }  
+    }   
+    &:before{
+        position: absolute;
+        content: '';
+        width: 526px;
+        background: radial-gradient(ellipse at center, #752df7 0%, rgba(117, 45, 247, 0) 70%);
+        left: 50%;
+        transform: translateX(-50%);
+        aspect-ratio: 2 / 1.5;
+        top: 5%;
+    }
+    
+}
+
+
+.title-section{
+    font-family: "PODIUM Sharp 3.11";
+    font-size: clamp(1.8rem, calc(-0.95rem + 8.8vw), 4rem);
+    text-transform: uppercase;
+    width: auto;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    position: relative;
+    align-items: center;font-family: "PODIUM Sharp 3.11";
+    display: flex;
+    letter-spacing: 1px;
+    &:before, &:after{
+        content: "";
+        background-image: url(/assets/rombo-icon.svg);
+        background-size: contain;
+        background-position: center center;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        margin: 0 14px;
+        max-width: 60px;
+            aspect-ratio: 1;
+        
+    }
+
 }

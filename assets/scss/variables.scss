@@ -15,8 +15,6 @@ $text-start: start;
 $text-center: center;
 
 
-
-// Mixins
 @mixin padding($prefix, $properties...) {
     @for $i from 1 through 5 {
         .#{$prefix}-#{$i} {
@@ -73,4 +71,60 @@ $text-center: center;
 
 @mixin animation($name, $duration, $timing: linear, $iteration: infinite) {
     animation: $name $duration $timing $iteration;
+}
+// Definición de breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Mixin para generar media queries
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "Breakpoint '#{$breakpoint}' no está definido.";
+  }
+}
+
+// Clases base
+.d-none {
+  display: none !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+
+// Generación dinámica de clases
+@each $breakpoint in map-keys($breakpoints) {
+  // Ocultar en un breakpoint específico
+  .d-#{$breakpoint}-none {
+    @include respond-to($breakpoint) {
+      display: none !important;
+    }
+  }
+
+  // Mostrar en un breakpoint específico
+  .d-#{$breakpoint}-block {
+    @include respond-to($breakpoint) {
+      display: block !important;
+    }
+  }
+}
+
+// Combinaciones específicas
+.d-none.d-lg-block {
+  display: none !important;
+
+  @include respond-to(lg) {
+    display: block !important;
+  }
 }

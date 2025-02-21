@@ -1,0 +1,11 @@
+<section class="collections">
+  <div class="container container-collections py-5">
+    <div class="title-section py-5">latest collections</div>
+      <div class="inner-grid">
+        {% for collection in collections %}
+          {% render 'collections-card', collection: collection %}
+        {% endfor %}
+      </div>
+  </div>
+
+</section>

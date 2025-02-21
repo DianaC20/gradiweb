@@ -11,6 +11,7 @@
         margin: 0 auto;
         padding: $padding-1;
         @include flex-center;
+        flex-direction: column;
         justify-content: space-between;
     }
     &__logo{
@@ -46,6 +47,7 @@
         @include flex-center;
         flex-wrap: wrap;
         justify-content: space-evenly;
+        flex-direction: column;
     }
     
     &__nav-item, &__policies-item, &__social-item {
@@ -153,5 +155,16 @@
     }
     .header__navigation{
         border: 0;
+    }
+}
+@include respond-to(lg) {
+
+    .footer {        
+        &__container {
+            flex-direction: row;
+        }
+        &__nav-list, &__policies-list, &__social-list {
+            flex-direction: row;
+        }
     }
 }
